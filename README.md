@@ -14,6 +14,7 @@ Left Control:
   
  Right Control:
   - Joystick to rotate Player
+  
   - Trigger Button to teletransport to ray location
   
    --------------------------------------------------------------------------------------------------
@@ -21,10 +22,12 @@ Left Control:
   
   Left Control:
     - Hold Grip Button (Menu Prefabs apear around the Left Hand)
+    
     - While Grip - Press YButton / XButton to change group of prefabs
     
    Right Control:
     - To Preview Object in front of you, hover Right hand on th prefabs menu on left hand
+    
     - To spawn Object - while preview object -> Press grip Button
     
     --------------------------------------------------------------------------------------------------
@@ -32,16 +35,22 @@ Left Control:
    
    Right Control:
     - Point to Object with the Ray Press Grip Button to Grab
+    
     - While grabing -> use Joystick to rotate and to move object away or close
+    
     - Release Grab to release Object
+    
     - Use the hands and grip button to Grab Object
+    
     - To delete Object - Point over the Object and a Trash icon will appear, click with the trigger Button
     
     --------------------------------------------------------------------------------------------------
     <b>Save / Load Scenes:</b>
     
     Left Controll
+    
       - Press menu Button to appear or disappear Canvas
+      
       - Click with Trigger button to save or load Scene
       
     --------------------------------------------------------------------------------------------------
