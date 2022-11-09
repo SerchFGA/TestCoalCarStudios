@@ -11,7 +11,7 @@ public class PrefabScript : MonoBehaviour
 
     private void Awake()
     {
-        SaveSystem.prefabs.Add(this);                           //Add prefab to SaveSystem list
+        SaveSystem.prefabsOnScene.Add(this);                           //Add prefab to SaveSystem list
     }
 
     private void Start()
@@ -27,7 +27,7 @@ public class PrefabScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        SaveSystem.prefabs.Remove(this);                        //Remove prefab from SaveSystem list
+        SaveSystem.prefabsOnScene.Remove(this);                        //Remove prefab from SaveSystem list
     }
 
 }

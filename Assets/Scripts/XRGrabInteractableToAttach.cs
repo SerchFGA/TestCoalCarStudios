@@ -18,24 +18,24 @@ public class XRGrabInteractableToAttach : XRGrabInteractable
     }
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
+        //desactivate rightJoystic turn
+        turnProvider.enabled = false;
+
         //play sound when grab obj.
         audioS.clip = grabSound;
         audioS.Play();
-
-        //desactivate rightJoystic turn
-        turnProvider.enabled = false;
 
         base.OnSelectEntered(args);
     }
 
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
+        //activate rightJoystic turn
+        turnProvider.enabled = true;
+
         //Play sound when release obj.
         audioS.clip = releaseSound;
         audioS.Play();
-
-        //activate rightJoystic turn
-        turnProvider.enabled = true;
 
         base.OnSelectExited(args);
     }

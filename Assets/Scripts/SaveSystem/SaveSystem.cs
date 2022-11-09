@@ -12,7 +12,7 @@ public class SaveSystem : MonoBehaviour
     public GameObject parentPrefabs;
 
     //List of prefabs on scene
-    public static List<PrefabScript> prefabs = new List<PrefabScript>();
+    public static List<PrefabScript> prefabsOnScene = new List<PrefabScript>();
 
     //path to save Data
     const string prefabSubFolder = "/prefabSaveData";
@@ -26,13 +26,13 @@ public class SaveSystem : MonoBehaviour
 
         //Create file to save the number of prefabs created
         FileStream countStream = new FileStream(countPath, FileMode.Create);
-        formatter.Serialize(countStream, prefabs.Count);
+        formatter.Serialize(countStream, prefabsOnScene.Count);
         countStream.Close();
 
-        for (int i = 0; i < prefabs.Count; i++)                                                 //Create files to save prefabs
+        for (int i = 0; i < prefabsOnScene.Count; i++)                                                 //Create files to save prefabs
         {
             FileStream stream = new FileStream(path + i, FileMode.Create);
-            PrefabsData data = new PrefabsData(prefabs[i]);
+            PrefabsData data = new PrefabsData(prefabsOnScene[i]);
 
             formatter.Serialize(stream, data);
             stream.Close();
@@ -58,10 +58,15 @@ public class SaveSystem : MonoBehaviour
             Debug.LogError("Path not found in" + countPath);
         }
 
+        //Delete all prefabs
+        if (prefabsOnScene.Count > 0)
+            deleteAllPrefabs();
+
         for (int i = 0; i < prefCount; i++)
         {
             if (File.Exists(path+i))
             {
+
                 FileStream stream = new FileStream(path + i, FileMode.Open);
                 PrefabsData data = formatter.Deserialize(stream) as PrefabsData;
                 stream.Close();
@@ -94,6 +99,17 @@ public class SaveSystem : MonoBehaviour
             }
             
         }
+
+    }
+
+
+    void deleteAllPrefabs()                                                                                 //Delete all Prefabs
+    {
+        for (int i = 0; i < prefabsOnScene.Count; i++)
+        {
+            prefabsOnScene[i].GetComponent<PrefabScript>().deleteObj();
+        }
+
 
     }
 }
