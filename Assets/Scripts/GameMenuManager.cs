@@ -36,7 +36,11 @@ public class GameMenuManager : MonoBehaviour
     {
         menu.SetActive(!menu.activeSelf);
         menu.transform.position = head.position + new Vector3(head.forward.x, 0, head.forward.z).normalized * spawnDistance;
+ 
+    }
 
-        
+    public void quitGame()
+    {
+        Application.Quit();
     }
 }
